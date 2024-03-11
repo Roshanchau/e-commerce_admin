@@ -1,22 +1,22 @@
 "use client";
 
-import { Modal } from "@/components/ui/modal";
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
+
+import { useStoreModal } from "@/hooks/use-store-modal";
 
 const SetupPage = () => {
-  const [isClient, setIsClient] = useState(false);
+  const isOpen=useStoreModal(state=>state.isOpen);
+  const onOpen = useStoreModal(state=>state.onOpen);
 
   useEffect(() => {
-    setIsClient(true);
-  }, []);
+    if (!isOpen) {
+      onOpen();
+    }
+  }, [isOpen, onOpen]);
 
   return (
-    <div className="p-4">
-      {isClient && (
-        <Modal title="Test" description="Test desc" isOpen onClose={() => {}}>
-          children
-        </Modal>
-      )}
+    <div>
+      hello
     </div>
   );
 };
