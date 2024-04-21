@@ -6,7 +6,7 @@ import React from "react";
 
 export default async function DashboardLayout({
     children,
-    params
+    params  //here the params are the props that get passed down to the layout component from the route of the storeID from root layout.
 }:{
     children: React.ReactNode;
     params:{storeId: string}
