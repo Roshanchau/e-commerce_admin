@@ -8,8 +8,10 @@ export const Heading: React.FC<headingprops>=({
 })=>{
     return(
         <div>
-            <h1>{title}</h1>
-            <p>{description}</p>
+            <h2 className="text-3xl font-bold tracking-tight">{title}</h2>
+            <p className="text-sm text-muted-foreground">
+                {description}
+            </p>
         </div>
     )
 }
