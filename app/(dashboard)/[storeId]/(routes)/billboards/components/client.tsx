@@ -1,10 +1,10 @@
 "use client"
 
 import { useParams, useRouter } from "next/navigation";
-import { Plus } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
+import { Plus } from "lucide-react";
 
 const BillboardClient=()=>{
     const router=useRouter();
@@ -16,7 +16,7 @@ return(
                 title="Billboards (0)"
                 description="Manage billboards for your store"
             />
-            <Button onClick={()=>router.push(`/${params.storeId}/billboards/sdas`)}>
+            <Button onClick={()=>router.push(`/${params.storeId}/billboards/new`)}>
                 <Plus className="mr-2 h-4 w-4"/>
                 Add New
             </Button>
