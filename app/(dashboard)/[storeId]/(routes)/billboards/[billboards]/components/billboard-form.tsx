@@ -23,7 +23,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { AlertModal } from "@/components/modals/alert-modal";
-import { useOrigin } from "@/hooks/use-origin";
 import ImageUpload from "@/components/ui/iamge-upload";
 
 const formSchema = z.object({
@@ -43,7 +42,6 @@ const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
 
   const params = useParams();
   const router = useRouter();
-  const origin = useOrigin();
 
   const title = initialData ? "Edit billboard" : "Create billboard";
   const description = initialData ? "Edit a billboard" : "Add new billboard";
