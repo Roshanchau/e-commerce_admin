@@ -36,7 +36,9 @@ interface BillboardFormProps {
   initialData: Billboard | null;
 }
 
+
 const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
+
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -159,7 +161,6 @@ const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
           </Button>
         </form>
       </Form>
-      <Separator />
     </>
   );
 };

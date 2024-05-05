@@ -25,13 +25,13 @@ return(
                 title={`Billboards (${data.length})`}
                 description="Manage billboards for your store"
             />
-            <Button onClick={()=>router.push(`/${params.storeId}/billboards/new`)}>
+            <Button onClick={()=>router.push(`/${params.storeId}/billboards/1`)}>
                 <Plus className="mr-2 h-4 w-4"/>
                 Add New
             </Button>
         </div>
         <Separator/>
-        <DataTable columns={columns} data={data}/>
+        <DataTable columns={columns} data={data} searchKey="label"/>
     </>
 )
 }
