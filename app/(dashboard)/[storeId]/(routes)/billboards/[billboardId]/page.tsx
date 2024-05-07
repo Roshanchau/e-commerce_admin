@@ -6,7 +6,7 @@ interface BillboardPageProps {
 }
 
 const BillboardPage: React.FC<BillboardPageProps> = async ({ params }) => {
-  const billboard = await prismadb.billboard.findFirst({
+  const billboard = await prismadb.billboard.findUnique({
    where: {
       id: params.billboardId,
     },
