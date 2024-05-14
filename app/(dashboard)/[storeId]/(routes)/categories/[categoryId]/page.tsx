@@ -1,8 +1,8 @@
 import prismadb from "@/lib/prismadb";
-import BillboardForm from "./components/billboard-form";
+import CategoryForm from "./components/category-form";
 
 interface CategoryPageProps {
-  params: { categoryId: string };
+  params: { categoryId: string , storeId: string};
 }
 
 const CategoryPage: React.FC<CategoryPageProps> = async ({ params }) => {
@@ -12,10 +12,18 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({ params }) => {
     },
   });
 
+  const billboard= await prismadb.billboard.findMany({
+    where:{
+      storeId: params.storeId
+    }
+  })
+
   return (
     <div className="flex-col">
       <div className="flex-1 space-y-4 p-8 pt-6">
-        <BillboardForm initialData={category}/>
+        <CategoryForm
+        billboards={billboard}
+        initialData={category}/>
       </div>
     </div>
   );
