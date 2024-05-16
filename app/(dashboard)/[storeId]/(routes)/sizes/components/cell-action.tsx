@@ -1,4 +1,3 @@
-
 "use client";
 
 import toast from "react-hot-toast";
@@ -12,14 +11,14 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { CategoryColumn } from "./columns";
+import { SizeColumn } from "./columns";
 import { Button } from "@/components/ui/button";
 import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
 import { useState } from "react";
 import { AlertModal } from "@/components/modals/alert-modal";
 
 interface CellActionProps {
-  data: CategoryColumn;
+  data: SizeColumn;
 }
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
@@ -31,19 +30,19 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
 
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id);
-    toast.success("category Id copied to clipboard");
+    toast.success("billboard Id copied to clipboard");
   };
 
   const onDelete = async () => {
     try {
       setLoading(true);
-      await axios.delete(`/api/stores/${params.storeId}/categories/${data.id}`);
-      router.push(`/${params.storeId}/categories`);
+      await axios.delete(`/api/stores/${params.storeId}/sizes/${data.id}`);
+      router.push(`/${params.storeId}/sizes`);
       router.refresh();
-      toast.success("Category deleted successfully");
+      toast.success("Billboard deleted successfully");
     } catch (error) {
       toast.error(
-        "make sure you removed all products using this category first."
+        "make sure you removed all products using the size first."
       );
     } finally {
       setLoading(false);
@@ -74,7 +73,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={() =>
-              router.push(`/${params.storeId}/categories/${data.id}`)
+              router.push(`/${params.storeId}/sizes/${data.id}`)
             }
           >
             <Edit className="h-4 w-4 mr-2" />

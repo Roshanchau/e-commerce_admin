@@ -65,8 +65,8 @@ const SettingsForm: React.FC<SettingFormProps> = ({ initailData }) => {
     try {
       setLoading(true);
       await axios.delete(`/api/stores/${params.storeId}`);
-      router.refresh();
       router.push("/");
+      router.refresh();
       toast.success("Store deleted successfully");
     } catch (error) {
       toast.error(
