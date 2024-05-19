@@ -11,14 +11,14 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { SizeColumn } from "./columns";
+import { ColorColumn } from "./columns";
 import { Button } from "@/components/ui/button";
 import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
 import { useState } from "react";
 import { AlertModal } from "@/components/modals/alert-modal";
 
 interface CellActionProps {
-  data: SizeColumn;
+  data: ColorColumn;
 }
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
@@ -36,13 +36,13 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
   const onDelete = async () => {
     try {
       setLoading(true);
-      await axios.delete(`/api/stores/${params.storeId}/sizes/${data.id}`);
-      router.push(`/${params.storeId}/sizes`);
+      await axios.delete(`/api/stores/${params.storeId}/colors/${data.id}`);
+      router.push(`/${params.storeId}/colors`);
       router.refresh();
-      toast.success("Billboard deleted successfully");
+      toast.success("Color deleted successfully");
     } catch (error) {
       toast.error(
-        "make sure you removed all products using the size first."
+        "make sure you removed all products using this color first."
       );
     } finally {
       setLoading(false);
@@ -73,7 +73,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={() =>
-              router.push(`/${params.storeId}/sizes/${data.id}`)
+              router.push(`/${params.storeId}/colors/${data.id}`)
             }
           >
             <Edit className="h-4 w-4 mr-2" />

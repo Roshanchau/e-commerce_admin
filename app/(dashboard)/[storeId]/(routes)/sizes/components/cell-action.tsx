@@ -30,7 +30,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
 
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id);
-    toast.success("billboard Id copied to clipboard");
+    toast.success("size Id copied to clipboard");
   };
 
   const onDelete = async () => {
@@ -39,7 +39,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
       await axios.delete(`/api/stores/${params.storeId}/sizes/${data.id}`);
       router.push(`/${params.storeId}/sizes`);
       router.refresh();
-      toast.success("Billboard deleted successfully");
+      toast.success("Size deleted successfully");
     } catch (error) {
       toast.error(
         "make sure you removed all products using the size first."
