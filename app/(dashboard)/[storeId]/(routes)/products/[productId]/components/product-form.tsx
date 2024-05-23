@@ -214,6 +214,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
                       disabled={loading}
                       placeholder="9.99"
                       {...field}
+                      onChange={(e) => field.onChange(parseFloat(e.target.value))}
                     />
                   </FormControl>
                   <FormMessage />

@@ -32,7 +32,7 @@ return(
             </Button>
         </div>
         <Separator/>
-        <DataTable columns={columns} data={data} searchKey="label"/>
+        <DataTable columns={columns} data={data} searchKey="name"/>
         <Heading title="API" description="Api calls for Producst"/>
         <Separator/>
         <ApiList entityName="products" entityIdName="proudctId"/>
